@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import UserController from './controllers/users.controller';
 import ValidateUser from './middlewares/user.middleware';
+import TeamsController from './controllers/teams.controller';
 
 const validateUser = new ValidateUser();
 
@@ -15,5 +16,9 @@ router.post(
 );
 
 router.get('/login/validate', UserController.validateToken);
+
+router.get('/teams', TeamsController.getAll);
+
+router.get('/teams/:id', TeamsController.getById);
 
 export default router;
