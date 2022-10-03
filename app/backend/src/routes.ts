@@ -27,4 +27,8 @@ router.get('/matches', MatchController.getAll);
 
 router.post('/matches', verifyJwt, MatchController.create);
 
+router.patch('/matches/:id/finish', verifyJwt, MatchController.finishMatch);
+
+router.patch('/matches/:id', verifyJwt, MatchController.editMatch);
+
 export default router;

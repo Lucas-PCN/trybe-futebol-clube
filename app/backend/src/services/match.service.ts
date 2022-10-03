@@ -60,4 +60,18 @@ export default class MatchService {
       inProgress: result.inProgress,
     };
   };
+
+  static finishMatch = async (id: number) => {
+    await MatchModel.update(
+      { inProgress: false },
+      { where: { id } },
+    );
+  };
+
+  static editMatch = async (id: number, homeTeamGoals: number, awayTeamGoals: number) => {
+    await MatchModel.update(
+      { homeTeamGoals, awayTeamGoals },
+      { where: { id } },
+    );
+  };
 }
